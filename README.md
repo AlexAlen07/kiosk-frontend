@@ -1,10 +1,10 @@
-# NebuBot Kiosk - Demo
+# Kiosk - Demo
 
 ## Overview
 Toque primero, orientado a vertical (retrato). Frontend demo para acceder a conocimiento en áreas comunes: políticas, videos, cursos, cuestionarios y certificados.
 
 ## Resumen
-NebuBot Kiosk es una SPA (Vite + React + TypeScript) optimizada para pantallas verticales tipo kiosk. Funciona en **modo demo** por defecto (datos mock en `src/lib/mocks.ts`) y puede integrarse con un backend que llame a OpenAI para el ChatBot.
+Kiosk es una SPA (Vite + React + TypeScript) optimizada para pantallas verticales tipo kiosk. Funciona en **modo demo** por defecto (datos mock en `src/lib/mocks.ts`) y puede integrarse con un backend que llame a OpenAI para el ChatBot.
 
 ---
 
