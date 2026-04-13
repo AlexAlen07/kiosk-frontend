@@ -42,7 +42,7 @@ npm run dev
 ### Características Implementadas
 - **Pantalla de Inicio**: Navegación basada en cuadrícula con grandes mosaicos táctiles
 - **Demostración de Lector de Tarjetas**: Simulación de teclado HID para el inicio de sesión de empleados
-- **ChatBot (NebuBot IA)**: Asistente de IA para información de seguridad (demostración + compatible con OpenAI)
+- **ChatBot (IA)**: Asistente de IA para información de seguridad (demostración + compatible con OpenAI)
 - **Políticas y Procedimientos**: Visor de documentos con categorías
 - **Videotutoriales**: Reproductor de video con miniaturas y categorías
 - **Cuestionarios**: Cuestionario interactivo con puntuación y resultados
@@ -107,7 +107,7 @@ El chatbot utiliza un patrón de proveedor para facilitar el cambio de backend:
 
 ### Configuración
 
-#### Modo Demo (predeterminado)
+#### Modo Demo
 No se necesita configuración. Utiliza respuestas predefinidas.
 
 ```bash
@@ -151,22 +151,3 @@ src/
 └── types/
     └── kiosk.ts              # TypeScript interfaces
 ```
-
----
-
-## Notas de seguridad
-
-⚠️ **IMPORTANTE**: ¡Nunca expongas las claves de API en el código frontend!
-
-- Las variables `VITE_*` se empaquetan en el código cliente (PUBLIC)
-- `OPENAI_API_KEY` debe estar solo en el entorno del backend (PRIVATE)
-- El frontend llama a `/api/chat`, el backend llama a OpenAI
-
----
-
-## Notas de diseño
-
-- **Orientation**: Optimized for 1024×1366 portrait displays
-- **Touch targets**: Minimum 48px for accessibility
-- **Theme**: Dark industrial with high contrast colors
-- **Animations**: Subtle framer-motion micro-interactions
