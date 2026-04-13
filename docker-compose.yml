@@ -1,0 +1,17 @@
+services:
+  kiosco-nebubot:
+    build:
+      context: ..
+      dockerfile: kiosk-frontend/Dockerfile
+      args:
+        VITE_CHAT_PROVIDER: "openai"
+        # Si el backend corre como otro contenedor en el mismo compose:
+        VITE_CHAT_API_ENDPOINT: "http://nebubot:3002/api/chat"
+        VITE_API_BASE: "http://nebubot:3002"
+        # Si el backend estará expuesto por dominio/https en Azure, cambia por tu URL real:
+        # VITE_CHAT_API_ENDPOINT: "https://api.tudominio.com/api/chat"
+        # VITE_API_BASE: "https://api.tudominio.com"
+    image: kiosco-nebubot:latest
+    ports:
+      - "8081:80"
+    restart: unless-stopped

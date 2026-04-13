@@ -1,0 +1,224 @@
+/* 1. FUENTES (De Lovable) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. DISEÑO DE SISTEMA (De Lovable - El motor de colores) */
+@layer base {
+  :root {
+    /* Dark industrial base */
+    --background: 220 25% 10%;
+    --foreground: 210 20% 95%;
+
+    --reader-waiting: 45 93% 47%;
+
+    --card: 220 20% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 220 25% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 20%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Kiosk tile colors - Usados por las clases de abajo */
+    --tile-blue: 199 89% 48%;
+    --tile-orange: 25 95% 53%;
+    --tile-yellow: 45 93% 47%;
+    --tile-green: 142 71% 45%;
+    --tile-purple: 270 60% 55%;
+    --tile-red: 0 72% 51%;
+    --tile-cyan: 187 85% 43%;
+    --tile-pink: 330 80% 60%;
+    --tile-teal: 174 72% 40%;
+
+    /* Sombras y Gradiantes */
+    --shadow-tile: 0 8px 32px -8px hsla(0 0% 0% / 0.5), 0 4px 8px -4px hsla(0 0% 0% / 0.3);
+    --shadow-tile-hover: 0 12px 40px -8px hsla(199 89% 48% / 0.3), 0 8px 16px -4px hsla(0 0% 0% / 0.4);
+    --gradient-glow: radial-gradient(ellipse at center, hsla(199 89% 48% / 0.15) 0%, transparent 70%);
+  }
+}
+
+/* 3. ESTILOS BASE (Consolidados) */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply h-full;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased h-full;
+    overflow-x: hidden;
+  }
+}
+
+/* 4. COMPONENTES (Lo mejor de ambos mundos) */
+@layer components {
+
+  .bg-reader-waiting {
+    background-color: hsl(var(--reader-waiting));
+  }
+
+  .bg-tile-blue\/20 {
+    background-color: hsl(var(--tile-blue) / .2);
+  }
+
+  .bg-tile-yellow\/20 {
+    background-color: hsl(var(--tile-yellow) / .2);
+  }
+
+  /* Contenedor principal con el degradado industrial de Lovable */
+  .kiosk-container {
+    @apply min-h-screen w-full flex flex-col;
+    background: linear-gradient(180deg, hsl(220 25% 8%) 0%, hsl(220 25% 12%) 100%);
+  }
+
+  /* Tiles con efectos visuales avanzados (Sombras + Animación) */
+  .kiosk-tile {
+    @apply relative flex flex-col items-center justify-center gap-3 p-6 rounded-2xl transition-all duration-200;
+    box-shadow: var(--shadow-tile);
+  }
+
+  .kiosk-tile:active {
+    @apply scale-95;
+    box-shadow: var(--shadow-tile-hover);
+  }
+
+  /* Colores de tiles (Usando los degradados Pro de Lovable) */
+  .kiosk-tile-blue {
+    background: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(199 89% 38%) 100%);
+  }
+
+  .kiosk-tile-orange {
+    background: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(25 95% 43%) 100%);
+  }
+
+  .kiosk-tile-yellow {
+    background: linear-gradient(135deg, hsl(45 93% 50%) 0%, hsl(45 93% 40%) 100%);
+  }
+
+  .kiosk-tile-green {
+    background: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(142 71% 35%) 100%);
+  }
+
+  .kiosk-tile-purple {
+    background: linear-gradient(135deg, hsl(270 60% 55%) 0%, hsl(270 60% 45%) 100%);
+  }
+
+  .kiosk-tile-red {
+    background: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 72% 41%) 100%);
+  }
+
+  .kiosk-tile-cyan {
+    background: linear-gradient(135deg, hsl(187 85% 43%) 0%, hsl(187 85% 33%) 100%);
+  }
+
+  .kiosk-tile-teal {
+    background: linear-gradient(135deg, hsl(174 72% 40%) 0%, hsl(174 72% 30%) 100%);
+  }
+
+  .kiosk-tile-pink {
+    background: linear-gradient(135deg, hsl(330 80% 60%) 0%, hsl(330 80% 50%) 100%);
+  }
+
+  /* Utilidades tuyas que Lovable no tenía y son útiles */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  .text-kiosk-xs {
+    @apply text-xs;
+  }
+
+  .text-kiosk-sm {
+    @apply text-sm;
+  }
+
+  .text-kiosk-base {
+    @apply text-base;
+  }
+
+  .text-kiosk-2xl {
+    @apply text-2xl;
+  }
+
+  .text-tile-blue {
+    color: hsl(var(--tile-blue));
+  }
+
+  .text-tile-yellow {
+    color: hsl ↳ hsl(45 93% 47%) ↳ #e7b008 (var(--tile-yellow));
+  }
+
+  .text-tile-yellow {
+    color: hsl(var(--tile-yellow));
+  }
+
+  .from-tile-yellow\/10 {
+    --tw-gradient-from: hsl(var(--tile-yellow) / .1) var(--tw-gradient-from-position);
+    --tw-gradient-to: hsl(var(--tile-yellow) / 0) var(--tw-gradient-to-position);
+    /* Esto evita cortes bruscos */
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .to-tile-orange\/10 {
+    --tw-gradient-to: hsl(var(--tile-orange) / .1) var(--tw-gradient-to-position);
+  }
+
+  .border-tile-yellow\/30 {
+    border-color: hsl(var(--tile-yellow) / .3);
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Brillo opcional para elementos destacados */
+  .kiosk-glow {
+    position: relative;
+  }
+
+  .kiosk-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--gradient-glow);
+  }
+}
