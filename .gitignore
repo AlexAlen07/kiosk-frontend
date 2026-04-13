@@ -1,6 +1,5 @@
 #Vars
 .env.local
-.env.example
 
 # Logs
 logs
